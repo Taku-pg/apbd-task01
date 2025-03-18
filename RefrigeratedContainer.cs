@@ -4,17 +4,21 @@ public class RefrigeratedContainer : Container
 {
     public String ProductType { get; set; }
     public double Temperature { get; set; }
+    private static int _number;
 
-    public RefrigeratedContainer(String productType, double temperature)
+    public RefrigeratedContainer(int height,int tareWeight,int depth,double maxPayload):base(height,tareWeight,depth,maxPayload)
     {
-        Temperature = temperature;
+        _number++;
         Type = 'C';
+        SerialNumber = "KON"+"-"+Type+"-"+_number;
+
     }
 
     public void Load(double massOfProduct, double temperatureOfProduct, string productType)
     {
         if (AvailablePayload == MaxPayload)
         {
+            Temperature = temperatureOfProduct;
             productType = ProductType;
         }
         

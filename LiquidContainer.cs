@@ -4,25 +4,28 @@ namespace apbd_tut3;
 
 public class LiquidContainer: Container, IHazardNotifier
 {
-    public LiquidContainer(int height,int tareWeight,int depth,double maxPayload)
+
+    private int _number = 0;
+    public LiquidContainer(int height,int tareWeight,int depth,double maxPayload) : base(height,tareWeight,depth,maxPayload)
     {
-        this.Type = 'L';
-        
+        _number++;
+        Type = 'L';
+        SerialNumber = "KON"+"-"+Type+"-"+_number;
     }
     
     public void Notify()
     {
-        Console.WriteLine("Hazard with"+this.SerialNumber);
+        Console.WriteLine("Hazard with "+SerialNumber);
     }
 
     public void Load(int dangerFlag,int massOfProducts)
     {
         if (dangerFlag == 0)
         {
-            this.MaxPayload *= 0.9;
+            MaxPayload *= 0.9;
         }else if (dangerFlag == 1)
         {
-            this.MaxPayload *= 0.5;
+            MaxPayload *= 0.5;
         }
 
         if (massOfProducts > MaxPayload)
