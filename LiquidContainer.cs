@@ -17,18 +17,22 @@ public class LiquidContainer: Container, IHazardNotifier
     {
         Console.WriteLine("Hazard with "+SerialNumber);
     }
-
+    
     public void Load(int dangerFlag,int massOfProducts)
     {
-        if (dangerFlag == 0)
+        if (AvailablePayload == MaxPayload)
         {
-            MaxPayload *= 0.9;
-        }else if (dangerFlag == 1)
-        {
-            MaxPayload *= 0.5;
+             if (dangerFlag == 0) 
+             { 
+                 AvailablePayload *= 0.9;
+             }else if (dangerFlag == 1) 
+             { 
+                 AvailablePayload *= 0.5;
+             }
         }
+       
 
-        if (massOfProducts > MaxPayload)
+        if (massOfProducts > AvailablePayload)
         {
             Notify();
         }

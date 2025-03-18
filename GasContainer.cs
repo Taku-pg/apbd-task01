@@ -14,7 +14,7 @@ public class GasContainer : Container, IHazardNotifier
 
     public void Notify()
     {
-        Console.WriteLine("Hazard with"+SerialNumber);
+        Console.WriteLine("Hazard with "+SerialNumber);
     }
 
     public override void Empty()

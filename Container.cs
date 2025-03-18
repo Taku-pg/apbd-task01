@@ -15,6 +15,7 @@ public class Container
     public Container(int height, int tareWeight, int depth,double maxPayload)
     {
         MaxPayload = maxPayload;
+        AvailablePayload = maxPayload;
         Height = height;
         TareWeight = tareWeight;
         Depth = depth;
@@ -25,6 +26,5 @@ public class Container
         Mass = 0;
         AvailablePayload = MaxPayload;
     }
-    public virtual void Load(){}
     
 }
