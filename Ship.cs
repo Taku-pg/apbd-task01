@@ -70,10 +70,11 @@ public class Ship
 
     public void Transfer(Ship ship)
     {
-        for (var i = 0; i < Containers.Count; i++)
+        int count=Containers.Count;
+        for (var i = 0; i < count; i++)
         {
-            ship.AddContainer(Containers[i]);
-            Containers.Remove(Containers[i]);
+            ship.AddContainer(Containers[0]);
+            Containers.Remove(Containers[0]);
             Console.WriteLine("transfer containers");
         }
     }
@@ -81,6 +82,7 @@ public class Ship
     public override string ToString()
     {
         return "Speed :"+Speed+" Max number of container :"
-               +MaxNumberOfContainers+" Max available weight :"+MaxWeightOfContainers;
+               +MaxNumberOfContainers+" Max available weight :"+MaxWeightOfContainers
+               +" Current number of containers :"+Containers.Count;
     }
 }
